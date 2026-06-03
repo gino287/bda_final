@@ -1,0 +1,86 @@
+{
+  "cleanup_rule": "t0_payment_type NaN & t0_channel_type=='Pos' -> 'POS'; else keep NaN",
+  "n_total": 144919,
+  "n_paytype_nan_before": 92511,
+  "n_filled_POS": 92511,
+  "n_true_missing_kept_nan": 0,
+  "metrics_before": {
+    "raw": {
+      "roc_auc": 0.7098,
+      "pr_auc": 0.569,
+      "brier": 0.2034
+    },
+    "calibrated": {
+      "roc_auc": 0.7079,
+      "pr_auc": 0.5539,
+      "brier": 0.1966
+    }
+  },
+  "metrics_after": {
+    "raw": {
+      "roc_auc": 0.7098,
+      "pr_auc": 0.569,
+      "brier": 0.2034
+    },
+    "calibrated": {
+      "roc_auc": 0.7079,
+      "pr_auc": 0.5539,
+      "brier": 0.1966
+    }
+  },
+  "deltas": [
+    {
+      "model": "raw",
+      "metric": "roc_auc",
+      "before": 0.7098,
+      "after": 0.7098,
+      "delta": 0.0
+    },
+    {
+      "model": "raw",
+      "metric": "pr_auc",
+      "before": 0.569,
+      "after": 0.569,
+      "delta": 0.0
+    },
+    {
+      "model": "raw",
+      "metric": "brier",
+      "before": 0.2034,
+      "after": 0.2034,
+      "delta": 0.0
+    },
+    {
+      "model": "calibrated",
+      "metric": "roc_auc",
+      "before": 0.7079,
+      "after": 0.7079,
+      "delta": 0.0
+    },
+    {
+      "model": "calibrated",
+      "metric": "pr_auc",
+      "before": 0.5539,
+      "after": 0.5539,
+      "delta": 0.0
+    },
+    {
+      "model": "calibrated",
+      "metric": "brier",
+      "before": 0.1966,
+      "after": 0.1966,
+      "delta": 0.0
+    }
+  ],
+  "conclusion_unchanged": true,
+  "persisted": [
+    "features.parquet",
+    "lightgbm.joblib",
+    "lightgbm_calibrated.joblib",
+    "test_predictions.parquet(p_lightgbm*)"
+  ],
+  "untouched": [
+    "logreg",
+    "catboost"
+  ]
+}

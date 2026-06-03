@@ -1,0 +1,54 @@
+{
+  "split": {
+    "method": "time-based (train t0<2023-11-01, test>=)",
+    "n_train": 106347,
+    "n_test": 38572,
+    "train_base_rate": 0.3876,
+    "test_base_rate": 0.3436,
+    "scale_pos_weight": 1.5799
+  },
+  "n_features": 48,
+  "results": {
+    "baseline_majority": {
+      "roc_auc": 0.5,
+      "pr_auc": 0.3436,
+      "brier": 0.2275
+    },
+    "baseline_rfm_logreg": {
+      "roc_auc": 0.6449,
+      "pr_auc": 0.5027,
+      "brier": 0.2212
+    },
+    "baseline_napl_rule": {
+      "roc_auc": 0.5698,
+      "pr_auc": 0.3788,
+      "brier": 0.2935
+    },
+    "logreg": {
+      "roc_auc": 0.7058,
+      "pr_auc": 0.5591,
+      "brier": 0.2064
+    },
+    "lightgbm": {
+      "roc_auc": 0.7098,
+      "pr_auc": 0.569,
+      "brier": 0.2034
+    },
+    "catboost": {
+      "roc_auc": 0.716,
+      "pr_auc": 0.578,
+      "brier": 0.2023
+    },
+    "lightgbm_calibrated": {
+      "roc_auc": 0.7079,
+      "pr_auc": 0.5539,
+      "brier": 0.1966
+    },
+    "lightgbm_random_split": {
+      "roc_auc": 0.7296,
+      "pr_auc": 0.6263
+    }
+  },
+  "main_model": "lightgbm",
+  "beats_all_baselines_pr_auc": true
+}

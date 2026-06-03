@@ -1,0 +1,40 @@
+{
+  "alt_definition": "Finish within (t0, t0 + personal_cycle_days]",
+  "alt_base_rate": 0.3013,
+  "orig_base_rate": 0.3759,
+  "agreement": 0.9132,
+  "orig": {
+    "pr_auc": 0.569,
+    "decile1_lift": 2.0,
+    "top10": [
+      "hist_finish_count",
+      "t0_channel_detail",
+      "hist_finish_365d",
+      "MemberCardLevel",
+      "ShopId",
+      "purchase_count",
+      "hist_recency_days",
+      "t0_amount",
+      "hist_total_amount",
+      "offline_ratio"
+    ]
+  },
+  "alt": {
+    "pr_auc": 0.4561,
+    "decile1_lift": 1.815,
+    "top10": [
+      "t0_channel_detail",
+      "offline_ratio",
+      "ShopId",
+      "MemberCardLevel",
+      "personal_cycle_days",
+      "t0_amount",
+      "hist_recency_days",
+      "hist_total_amount",
+      "interval_mean",
+      "tenure_days"
+    ]
+  },
+  "top10_overlap": 7,
+  "conclusion": "結論對復活定義不敏感"
+}

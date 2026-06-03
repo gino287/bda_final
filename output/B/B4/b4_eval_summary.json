@@ -1,0 +1,151 @@
+{
+  "roc_auc": 0.7079,
+  "pr_auc": 0.5539,
+  "brier": 0.1966,
+  "base_rate": 0.3436,
+  "top20_revivers_capture": 0.3487,
+  "top20_revenue_capture": 0.4339,
+  "decile_lift": [
+    {
+      "decile": 1,
+      "response_rate": 0.6855883877656817,
+      "lift": 1.9953606951556533
+    },
+    {
+      "decile": 2,
+      "response_rate": 0.5127008812856402,
+      "lift": 1.4921827807250971
+    },
+    {
+      "decile": 3,
+      "response_rate": 0.4301270417422868,
+      "lift": 1.2518569572235332
+    },
+    {
+      "decile": 4,
+      "response_rate": 0.38656987295825773,
+      "lift": 1.1250866324414033
+    },
+    {
+      "decile": 5,
+      "response_rate": 0.34508685506870623,
+      "lift": 1.0043529897917556
+    },
+    {
+      "decile": 6,
+      "response_rate": 0.3178636245786881,
+      "lift": 0.9251215368029244
+    },
+    {
+      "decile": 7,
+      "response_rate": 0.2781954887218045,
+      "lift": 0.8096699910191989
+    },
+    {
+      "decile": 8,
+      "response_rate": 0.23671247083225305,
+      "lift": 0.6889363483695514
+    },
+    {
+      "decile": 9,
+      "response_rate": 0.18382162302307492,
+      "lift": 0.5350009539912507
+    },
+    {
+      "decile": 10,
+      "response_rate": 0.059113300492610835,
+      "lift": 0.17204544077574777
+    }
+  ],
+  "unit_economics": {
+    "m": 703.8,
+    "c": 65.0,
+    "gross_margin": 0.55,
+    "revived_avg_revenue": 1279.6
+  },
+  "profit": {
+    "tau_star": 0.12,
+    "profit_star": 6925496.0,
+    "n_treated_star": 35536,
+    "profit_treat_all": 6820354.0,
+    "profit_rfm_rule": 4991952.0
+  },
+  "profit_reachable": {
+    "tau_star": 0.12,
+    "profit_star": 6898193.0,
+    "n_reachable": 38398
+  },
+  "sensitivity": [
+    {
+      "gross_margin": 0.45,
+      "redemption_rate": 0.3,
+      "tau_star": 0.12,
+      "max_profit": 5779384.0,
+      "n_treated": 35536
+    },
+    {
+      "gross_margin": 0.45,
+      "redemption_rate": 0.4,
+      "tau_star": 0.13,
+      "max_profit": 5248917.0,
+      "n_treated": 34956
+    },
+    {
+      "gross_margin": 0.45,
+      "redemption_rate": 0.5,
+      "tau_star": 0.13,
+      "max_profit": 4724577.0,
+      "n_treated": 34956
+    },
+    {
+      "gross_margin": 0.55,
+      "redemption_rate": 0.3,
+      "tau_star": 0.08,
+      "max_profit": 7458626.0,
+      "n_treated": 36238
+    },
+    {
+      "gross_margin": 0.55,
+      "redemption_rate": 0.4,
+      "tau_star": 0.12,
+      "max_profit": 6925496.0,
+      "n_treated": 35536
+    },
+    {
+      "gross_margin": 0.55,
+      "redemption_rate": 0.5,
+      "tau_star": 0.13,
+      "max_profit": 6395923.0,
+      "n_treated": 34956
+    },
+    {
+      "gross_margin": 0.65,
+      "redemption_rate": 0.3,
+      "tau_star": 0.08,
+      "max_profit": 9144176.0,
+      "n_treated": 36238
+    },
+    {
+      "gross_margin": 0.65,
+      "redemption_rate": 0.4,
+      "tau_star": 0.12,
+      "max_profit": 8604648.0,
+      "n_treated": 35536
+    },
+    {
+      "gross_margin": 0.65,
+      "redemption_rate": 0.5,
+      "tau_star": 0.12,
+      "max_profit": 8071608.0,
+      "n_treated": 35536
+    }
+  ],
+  "shap_top_features": [
+    "ShopId",
+    "MemberCardLevel",
+    "t0_channel_type",
+    "offline_ratio",
+    "hist_finish_count",
+    "t0_channel_detail"
+  ]
+}

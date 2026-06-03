@@ -1,0 +1,91 @@
+{
+  "decision_model": "calibrated LightGBM (p_lightgbm_cal), time-based test",
+  "test_n": 38572,
+  "test_base_rate": 0.3436,
+  "assumptions": {
+    "gross_margin": 0.55,
+    "coupon_face_value": 150,
+    "redemption_rate": 0.4,
+    "fixed_contact_cost": 5,
+    "coupon_cost(=face*redeem)": 60.0,
+    "contact_cost_modelB(=coupon_cost+fixed)": 65.0
+  },
+  "model_B_uplift": {
+    "description": "Only u of revival revenue is incremental; cost on all treated.",
+    "grid": [
+      {
+        "u": 0.05,
+        "tau_star": 0.875,
+        "reach_ratio": 0.005,
+        "n_treated": 201,
+        "model_profit": 965.0,
+        "treat_all_profit": -2040803.0,
+        "rfm_profit": -1309781.0,
+        "model_vs_all_gap": 2041768.0,
+        "selective_targeting": true,
+        "treat_all_is_loss": true
+      },
+      {
+        "u": 0.1,
+        "tau_star": 0.68,
+        "reach_ratio": 0.03,
+        "n_treated": 1172,
+        "model_profit": 41125.0,
+        "treat_all_profit": -1574427.0,
+        "rfm_profit": -930993.0,
+        "model_vs_all_gap": 1615551.0,
+        "selective_targeting": true,
+        "treat_all_is_loss": true
+      },
+      {
+        "u": 0.2,
+        "tau_star": 0.5,
+        "reach_ratio": 0.17,
+        "n_treated": 6555,
+        "model_profit": 317079.0,
+        "treat_all_profit": -641673.0,
+        "rfm_profit": -173416.0,
+        "model_vs_all_gap": 958752.0,
+        "selective_targeting": true,
+        "treat_all_is_loss": true
+      },
+      {
+        "u": 0.3,
+        "tau_star": 0.405,
+        "reach_ratio": 0.33,
+        "n_treated": 12728,
+        "model_profit": 779054.0,
+        "treat_all_profit": 291080.0,
+        "rfm_profit": 584161.0,
+        "model_vs_all_gap": 487974.0,
+        "selective_targeting": true,
+        "treat_all_is_loss": false
+      },
+      {
+        "u": 0.5,
+        "tau_star": 0.125,
+        "reach_ratio": 0.907,
+        "n_treated": 34968,
+        "model_profit": 2257420.0,
+        "treat_all_profit": 2156587.0,
+        "rfm_profit": 2099315.0,
+        "model_vs_all_gap": 100833.0,
+        "selective_targeting": false,
+        "treat_all_is_loss": false
+      }
+    ],
+    "crossover_conclusion": "u <= 0.30 時模型轉為選擇性 targeting（觸及<80%）並大幅勝過全發券；u >= 0.50 時 uplift 夠高，最佳策略趨近全發券。且 u <= 0.20 時全發券期望利潤為負（觸及成本吃掉增量）",
+    "targeting_threshold_u": 0.3
+  },
+  "model_C_cannibalization": {
+    "description": "Subtract wasted discount margin on would-revive-anyway customers.",
+    "assumed_uplift_u_c": 0.2,
+    "tau_star": 0.045,
+    "reach_ratio": 0.966,
+    "n_treated": 37252,
+    "model_profit": 1038718.0,
+    "treat_all_profit": 1036503.0,
+    "rfm_profit": 929648.0,
+    "model_vs_all_gap": 2215.0
+  }
+}

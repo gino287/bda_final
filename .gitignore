@@ -16,7 +16,10 @@ env/
 *.csv
 
 # ---- 產出物 (大型 parquet / 模型 / 圖檔, 由程式重新產生) ----
-output/
+output/sprint1
+output/sprint2
+output/sprint3
+output/*sprint
 catboost_info/
 
 # ---- 壓縮檔 ----

@@ -1,0 +1,75 @@
+{
+  "decision_model": "calibrated LightGBM, time-based test",
+  "profit_model": "uplift model, u=0.2, gm=0.55, contact_cost=65.0",
+  "n_brands": 5,
+  "corr_baserate_lift": -0.696,
+  "corr_baserate_gap_per_member": -0.592,
+  "conclusion": "驗證成立：base rate 越低，lift 與每人利潤增益越高（負相關）",
+  "table": [
+    {
+      "ShopId_short": "RZSHERLB",
+      "n": 5106,
+      "base_rate": 0.1293,
+      "roc_auc": 0.8182,
+      "pr_auc": 0.47,
+      "decile1_lift": 4.141,
+      "profitmax_reach_ratio": 0.341,
+      "model_profit": 303655.0,
+      "treat_all_profit": 144928.0,
+      "model_vs_all_gap": 158727.0,
+      "gap_per_member": 31.1
+    },
+    {
+      "ShopId_short": "NOmceSRC",
+      "n": 2425,
+      "base_rate": 0.2305,
+      "roc_auc": 0.5889,
+      "pr_auc": 0.2947,
+      "decile1_lift": 1.398,
+      "profitmax_reach_ratio": 0.021,
+      "model_profit": 1696.0,
+      "treat_all_profit": -69978.0,
+      "model_vs_all_gap": 71675.0,
+      "gap_per_member": 29.6
+    },
+    {
+      "ShopId_short": "zXQPxhiL",
+      "n": 7139,
+      "base_rate": 0.2661,
+      "roc_auc": 0.651,
+      "pr_auc": 0.4048,
+      "decile1_lift": 1.976,
+      "profitmax_reach_ratio": 0.151,
+      "model_profit": 24750.0,
+      "treat_all_profit": -180768.0,
+      "model_vs_all_gap": 205519.0,
+      "gap_per_member": 28.8
+    },
+    {
+      "ShopId_short": "hFwniXiB",
+      "n": 17328,
+      "base_rate": 0.4009,
+      "roc_auc": 0.6438,
+      "pr_auc": 0.5707,
+      "decile1_lift": 1.818,
+      "profitmax_reach_ratio": 0.162,
+      "model_profit": 153085.0,
+      "treat_all_profit": -409502.0,
+      "model_vs_all_gap": 562587.0,
+      "gap_per_member": 32.5
+    },
+    {
+      "ShopId_short": "3WUOySTy",
+      "n": 6574,
+      "base_rate": 0.4849,
+      "roc_auc": 0.6312,
+      "pr_auc": 0.6067,
+      "decile1_lift": 1.444,
+      "profitmax_reach_ratio": 0.18,
+      "model_profit": 14732.0,
+      "treat_all_profit": -126353.0,
+      "model_vs_all_gap": 141085.0,
+      "gap_per_member": 21.5
+    }
+  ]
+}

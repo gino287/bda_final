@@ -1,0 +1,121 @@
+{
+  "order_tg_time_range": {
+    "min": "2022-01-01 00:01:27.333000",
+    "max": "2024-02-29 23:59:49.877000",
+    "total_rows": 2725614,
+    "distinct_members": 1112087
+  },
+  "t0_candidates": 232328,
+  "t0_in_dormant": 232328,
+  "n_usable": 144919,
+  "label": {
+    "revived": 54475,
+    "passerby": 90444,
+    "base_rate_revived": 0.3759
+  },
+  "by_is_imputed": [
+    {
+      "is_imputed": false,
+      "n": 84335,
+      "n_revived": 38940,
+      "base_rate": 0.46173000533586295,
+      "pct_of_total": 0.5819457766062421
+    },
+    {
+      "is_imputed": true,
+      "n": 60584,
+      "n_revived": 15535,
+      "base_rate": 0.25642083718473524,
+      "pct_of_total": 0.4180542233937579
+    }
+  ],
+  "by_shop_id": [
+    {
+      "ShopId": "3WUOySTycJTK4Yeoza4Bjg==",
+      "n": 28449,
+      "n_revived": 14890,
+      "base_rate": 0.5233927378818236,
+      "pct_of_total": 0.19630966263912944
+    },
+    {
+      "ShopId": "NOmceSRCGAE2GjCOCwaCrA==",
+      "n": 7739,
+      "n_revived": 2019,
+      "base_rate": 0.2608864194340354,
+      "pct_of_total": 0.053402245392253606
+    },
+    {
+      "ShopId": "RZSHERLBqjPGOUFO01RYew==",
+      "n": 16025,
+      "n_revived": 2762,
+      "base_rate": 0.1723556942277691,
+      "pct_of_total": 0.11057901310387182
+    },
+    {
+      "ShopId": "hFwniXiB/Ev2ZPXeO630Sw==",
+      "n": 64809,
+      "n_revived": 27363,
+      "base_rate": 0.4222098782576494,
+      "pct_of_total": 0.44720844057715
+    },
+    {
+      "ShopId": "zXQPxhiL90nRa1XbvctRfA==",
+      "n": 27897,
+      "n_revived": 7441,
+      "base_rate": 0.2667311897336631,
+      "pct_of_total": 0.19250063828759514
+    }
+  ],
+  "by_t0_month": [
+    {
+      "t0_month": "2023-09",
+      "n": 58270,
+      "n_revived": 23584,
+      "base_rate": 0.40473657113437445
+    },
+    {
+      "t0_month": "2023-10",
+      "n": 48077,
+      "n_revived": 17638,
+      "base_rate": 0.3668698130082992
+    },
+    {
+      "t0_month": "2023-11",
+      "n": 38572,
+      "n_revived": 13253,
+      "base_rate": 0.3435912060562066
+    }
+  ],
+  "revived_revenue_stats": {
+    "count": 54475.0,
+    "mean": 1262.96,
+    "std": 2081.09,
+    "min": 0.0,
+    "25%": 310.0,
+    "50%": 665.0,
+    "75%": 1402.0,
+    "max": 51737.0
+  },
+  "sample_adequacy": {
+    "整體樣本 >= 10,000": {
+      "pass": true,
+      "value": 144919
+    },
+    "少數類 >= 1,000": {
+      "pass": "True",
+      "value": "54475"
+    },
+    "EPV (少數類/40特徵) >= 10": {
+      "pass": "True",
+      "value": 1361.9
+    },
+    "is_imputed 各子群 >= 500": {
+      "pass": "True",
+      "value": "60584"
+    },
+    "ShopId 各子群 >= 100": {
+      "pass": "True",
+      "value": "7739"
+    }
+  }
+}
