@@ -1,0 +1,36 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+*.egg-info/
+.ipynb_checkpoints/
+
+# ---- 虛擬環境 ----
+venv/
+.venv/
+env/
+
+# ---- 原始資料集 (不上傳, 受資料授權限制 + 體積大) ----
+91APP_Dataset(main)/
+*.csv
+
+# ---- 產出物 (大型 parquet / 模型 / 圖檔, 由程式重新產生) ----
+output/
+catboost_info/
+
+# ---- 壓縮檔 ----
+*.zip
+
+# ---- 模型 / 二進位產出 ----
+*.parquet
+*.joblib
+*.pkl
+
+# ---- 系統 / 編輯器 ----
+.DS_Store
+Thumbs.db
+.claude/settings.local.json
+
+# ---- 亂碼檔名暫存檔 ----
+*┌*.txt

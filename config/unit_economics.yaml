@@ -1,0 +1,38 @@
+# 單位經濟假設（B4 profit curve 用）
+# 全部為「假設值」，報告需做敏感度分析。資料來源：美妝保健產業常見區間 + B0 觀察值。
+
+# 毛利率（美妝保健常見 50%~65%，先用 55% 當基準）
+gross_margin: 0.55
+
+# 每位「真復活者」90 天增量毛利 m
+#   = 復活者平均 future_90d_revenue × gross_margin
+#   復活者平均營收由 b0_summary.json 觀察為 ~1263（程式會自動以實際值覆寫）
+revived_avg_revenue: 1262.96   # 會被程式以 test 集實際值覆寫
+
+# 每位被觸及者成本 c
+#   = 折價券面額 × 兌換率（只有兌換才付出 margin 成本）+ 固定觸及成本
+coupon_face_value: 150      # 折價券面額（NT$）
+redemption_rate: 0.40       # 兌換率（假設）
+fixed_contact_cost: 5       # 每次觸及固定成本（簡訊/推播，NT$）
+
+# 敏感度掃描範圍
+sensitivity:
+  gross_margin: [0.45, 0.55, 0.65]
+  redemption_rate: [0.30, 0.40, 0.50]
+
+# ──────────────────────────────────────────────────────────────
+# 修正版 profit 分析（任務 1：uplift + cannibalization）
+# 原版 B4 profit 假設「所有被觸及的復活者都貢獻全額增量毛利」過於樂觀。
+# 以下兩個模型更誠實地處理「優惠券到底促成多少額外復活」。
+# ──────────────────────────────────────────────────────────────
+revised_profit:
+  # Uplift 參數化版：u = 優惠券「促成」復活的比例（真實 uplift rate）。
+  #   只有 u 比例的復活營收算增量毛利；其餘是本來就會發生的。
+  uplift_grid: [0.05, 0.10, 0.20, 0.30, 0.50]
+
+  # Margin cannibalization 版：假設的真實 uplift（用來推算「本來就會復活」的人數）。
+  #   被觸及且本來就會復活者 → 白送折扣 margin（coupon_face × redemption）被扣除。
+  cannibalization_uplift: 0.20
+
+  # 折扣的 margin 被吃掉的單位金額 = 折扣面額 × 兌換率（與 c 的折扣成分一致）
+  # （直接沿用上方 coupon_face_value 與 redemption_rate，不另設）
