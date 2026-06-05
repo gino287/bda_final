@@ -10,8 +10,8 @@
 | PR-AUC | 0.554（基本率 0.344） |
 | Brier | 0.197 |
 
-對照基準（見 cv_results.json）：RFM 規則 PR-AUC≈0.39、NAPL 規則≈0.38、多數類=基本率。
-主模型 PR-AUC 0.554 明顯優於三基準。
+對照基準（見 cv_results.json）：**RFM-only 邏輯迴歸 PR-AUC 0.503**、NAPL 規則 0.379、多數類 0.344。
+主模型 PR-AUC 0.554（校準版）／0.569（raw）明顯優於三基準（贏最強的 RFM-logreg +15%，見 `CANONICAL_NUMBERS.md`）。
 
 ## 2. 排序與商業涵蓋
 
@@ -63,7 +63,7 @@
 SHAP 全域重要度（前幾名）：ShopId, MemberCardLevel, t0_channel_type, offline_ratio, hist_finish_count, t0_channel_detail
 
 1. **歷史購買強度（hist_finish_count / hist_finish_365d）是最強訊號**：買越多次、近一年越活躍者越會復活。對「歷史只買 1 次」的 imputed 子群應降低期望、少花折扣成本。
-2. **t0 回購情境合法且高訊號（t0_channel_detail / t0_amount）**：回購當下的通路與金額即可即時觸發決策——不需等行為資料。線下/特定 App 通路與較高 t0 金額者更可能復活。
+2. **t0 回購情境合法且高訊號（t0_channel_detail / t0_amount）**：回購當下的通路與金額即可即時觸發決策——不需等行為資料。線下/特定通路回購者更可能復活；**t0 單筆金額越高、復活率越低**（Spearman −0.90，見附錄 A2 更正）。
 3. **會員等級（MemberCardLevel）與品牌（ShopId）顯著**：高卡等、特定品牌（B0 顯示復活率 17%~52% 不等）應差異化預算分配。
 4. **規律性（interval_cv）與沉睡深度（hist_recency_days / dormancy_gap_days）**：購買越規律、沉睡越淺者越易復活；沉睡過深者即使回購一次也多為路過，發深折扣是浪費 margin。
 5. **行銷可觸及性是商業槓桿**：profit 可觸及版顯示，把預算集中在「可觸及 × 高分」者，能在不犧牲利潤下縮小觸及規模。

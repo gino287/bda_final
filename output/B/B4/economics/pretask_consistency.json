@@ -1,0 +1,146 @@
+{
+  "pretask": "Block 1 consistency fix",
+  "fix1_unit": {
+    "issue": "model u is a RATIO (incremental share of revival revenue); industry 1.2%/2.97% are absolute pp",
+    "conversion": "ratio = abs_uplift / audience_conversion; email 4.2%->5.4% gives u=1.2/5.4=0.22",
+    "industry_u_ratio_band": [
+      0.15,
+      0.25
+    ]
+  },
+  "fix2_redemption": {
+    "L1_hard_floor_broadcast": "8-15%",
+    "decision_econ_realtime_trigger": "25-40% (B fires at t0 repurchase = in-app/push, Count.co); base uses 0.40",
+    "note": "L1 conservative floor uses low broadcast redemption; L2/3 decision econ uses real-time-trigger redemption. Both industry-sourced; sensitivity shown."
+  },
+  "layer1_saving_sensitivity": [
+    {
+      "tier": "top30",
+      "redeem": 0.08,
+      "gm": 0.65,
+      "n_H": 11571,
+      "revival_rate_H": 0.5429,
+      "gross_saving_test": 138852.0,
+      "per_returner": 3.6,
+      "scaled_returners": 836337.0,
+      "u_breakeven": 0.0266
+    },
+    {
+      "tier": "p>=0.6",
+      "redeem": 0.08,
+      "gm": 0.65,
+      "n_H": 3152,
+      "revival_rate_H": 0.7078,
+      "gross_saving_test": 37824.0,
+      "per_returner": 0.98,
+      "scaled_returners": 227823.0,
+      "u_breakeven": 0.0204
+    },
+    {
+      "tier": "top30",
+      "redeem": 0.12,
+      "gm": 0.65,
+      "n_H": 11571,
+      "revival_rate_H": 0.5429,
+      "gross_saving_test": 208278.0,
+      "per_returner": 5.4,
+      "scaled_returners": 1254506.0,
+      "u_breakeven": 0.0399
+    },
+    {
+      "tier": "p>=0.6",
+      "redeem": 0.12,
+      "gm": 0.65,
+      "n_H": 3152,
+      "revival_rate_H": 0.7078,
+      "gross_saving_test": 56736.0,
+      "per_returner": 1.47,
+      "scaled_returners": 341734.0,
+      "u_breakeven": 0.0306
+    },
+    {
+      "tier": "top30",
+      "redeem": 0.15,
+      "gm": 0.65,
+      "n_H": 11571,
+      "revival_rate_H": 0.5429,
+      "gross_saving_test": 260348.0,
+      "per_returner": 6.75,
+      "scaled_returners": 1568133.0,
+      "u_breakeven": 0.0498
+    },
+    {
+      "tier": "p>=0.6",
+      "redeem": 0.15,
+      "gm": 0.65,
+      "n_H": 3152,
+      "revival_rate_H": 0.7078,
+      "gross_saving_test": 70920.0,
+      "per_returner": 1.84,
+      "scaled_returners": 427167.0,
+      "u_breakeven": 0.0382
+    },
+    {
+      "tier": "top30",
+      "redeem": 0.4,
+      "gm": 0.65,
+      "n_H": 11571,
+      "revival_rate_H": 0.5429,
+      "gross_saving_test": 694260.0,
+      "per_returner": 18.0,
+      "scaled_returners": 4181687.0,
+      "u_breakeven": 0.1329
+    },
+    {
+      "tier": "p>=0.6",
+      "redeem": 0.4,
+      "gm": 0.65,
+      "n_H": 3152,
+      "revival_rate_H": 0.7078,
+      "gross_saving_test": 189120.0,
+      "per_returner": 4.9,
+      "scaled_returners": 1139113.0,
+      "u_breakeven": 0.1019
+    }
+  ],
+  "layer2_base_econ": {
+    "gm": 0.55,
+    "redeem": 0.4,
+    "fixed": 5
+  },
+  "layer2_breakeven_u": 0.269,
+  "layer2_at_industry_band": {
+    "0.15": {
+      "treat_all": -1108049.8775,
+      "model_minus_all": 1257995.3675
+    },
+    "0.2": {
+      "treat_all": -641673.1699999997,
+      "model_minus_all": 958751.6799999998
+    },
+    "0.25": {
+      "treat_all": -175296.4624999999,
+      "model_minus_all": 701619.7875000001
+    }
+  },
+  "layer3_corrected": {
+    "u_grid": [
+      0.1,
+      0.15,
+      0.2,
+      0.25,
+      0.3,
+      0.5
+    ],
+    "n_combos": 96,
+    "model_strictly_beats_treatall": 96,
+    "model_ge_rfm": 96,
+    "treatall_loss_combos": 22,
+    "treatall_loss_combos_OLD": "46/96 (artifact of pp-as-ratio tiny u)",
+    "model_vs_all_margin": {
+      "mean": 256732.0,
+      "min": 3139.0,
+      "max": 1651615.0
+    }
+  }
+}

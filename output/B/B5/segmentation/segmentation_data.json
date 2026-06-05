@@ -1,0 +1,73 @@
+{
+  "tiers": [
+    {
+      "tier": "High",
+      "n": 12728,
+      "share": 0.33,
+      "revival_rate": 0.5308,
+      "avg_future_value": 764.9,
+      "avg_future_value_revived": 1441.0,
+      "reachable_share": 0.995,
+      "p_range": "0.41-1.00"
+    },
+    {
+      "tier": "Mid",
+      "n": 15363,
+      "share": 0.398,
+      "revival_rate": 0.3199,
+      "avg_future_value": 313.8,
+      "avg_future_value_revived": 980.8,
+      "reachable_share": 0.997,
+      "p_range": "0.26-0.40"
+    },
+    {
+      "tier": "Low",
+      "n": 10481,
+      "share": 0.272,
+      "revival_rate": 0.1509,
+      "avg_future_value": 229.3,
+      "avg_future_value_revived": 1518.9,
+      "reachable_share": 0.994,
+      "p_range": "0.00-0.25"
+    }
+  ],
+  "high_value_low_p": {
+    "n": 3910,
+    "revival_rate": 0.111,
+    "avg_hist_amount": 7039.0
+  },
+  "strategy_map_revival": [
+    [
+      0.22,
+      0.316,
+      0.422
+    ],
+    [
+      0.169,
+      0.328,
+      0.483
+    ],
+    [
+      0.111,
+      0.321,
+      0.566
+    ]
+  ],
+  "strategy_map_n": [
+    [
+      3719,
+      5807,
+      3315
+    ],
+    [
+      4579,
+      3511,
+      4783
+    ],
+    [
+      3910,
+      2187,
+      6761
+    ]
+  ]
+}

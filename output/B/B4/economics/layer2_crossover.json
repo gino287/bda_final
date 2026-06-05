@@ -1,0 +1,240 @@
+{
+  "layer": "Layer 2 — uplift crossover + industry evidence band",
+  "decision_model": "calibrated LightGBM (p_lightgbm_cal), time-based test n=38,572",
+  "profit_model": "uplift: u·gm·Σ_{treated,revived} revenue − (face·redeem+fixed)·|treated|",
+  "base_economics": {
+    "gross_margin": 0.55,
+    "redemption_rate": 0.4,
+    "fixed_cost": 5,
+    "coupon_face": 150
+  },
+  "u_grid": [
+    {
+      "u": 0.0,
+      "model_profit": -3315.0,
+      "model_tau": 1.0,
+      "model_reach": 0.001,
+      "treat_all_profit": -2507180.0,
+      "treat_none_profit": 0.0,
+      "rfm_profit": 0.0,
+      "model_minus_all": 2503865.0,
+      "model_minus_rfm": -3315.0
+    },
+    {
+      "u": 0.05,
+      "model_profit": 965.0,
+      "model_tau": 0.875,
+      "model_reach": 0.005,
+      "treat_all_profit": -2040803.0,
+      "treat_none_profit": 0.0,
+      "rfm_profit": 285.0,
+      "model_minus_all": 2041768.0,
+      "model_minus_rfm": 680.0
+    },
+    {
+      "u": 0.1,
+      "model_profit": 41125.0,
+      "model_tau": 0.68,
+      "model_reach": 0.03,
+      "treat_all_profit": -1574427.0,
+      "treat_none_profit": 0.0,
+      "rfm_profit": 2781.0,
+      "model_minus_all": 1615551.0,
+      "model_minus_rfm": 38344.0
+    },
+    {
+      "u": 0.15,
+      "model_profit": 149945.0,
+      "model_tau": 0.565,
+      "model_reach": 0.137,
+      "treat_all_profit": -1108050.0,
+      "treat_none_profit": 0.0,
+      "rfm_profit": 7304.0,
+      "model_minus_all": 1257995.0,
+      "model_minus_rfm": 142642.0
+    },
+    {
+      "u": 0.2,
+      "model_profit": 317079.0,
+      "model_tau": 0.5,
+      "model_reach": 0.17,
+      "treat_all_profit": -641673.0,
+      "treat_none_profit": 0.0,
+      "rfm_profit": 39600.0,
+      "model_minus_all": 958752.0,
+      "model_minus_rfm": 277478.0
+    },
+    {
+      "u": 0.25,
+      "model_profit": 526323.0,
+      "model_tau": 0.415,
+      "model_reach": 0.262,
+      "treat_all_profit": -175296.0,
+      "treat_none_profit": 0.0,
+      "rfm_profit": 124705.0,
+      "model_minus_all": 701620.0,
+      "model_minus_rfm": 401619.0
+    },
+    {
+      "u": 0.3,
+      "model_profit": 779054.0,
+      "model_tau": 0.405,
+      "model_reach": 0.33,
+      "treat_all_profit": 291080.0,
+      "treat_none_profit": 0.0,
+      "rfm_profit": 307550.0,
+      "model_minus_all": 487974.0,
+      "model_minus_rfm": 471505.0
+    },
+    {
+      "u": 0.35,
+      "model_profit": 1064512.0,
+      "model_tau": 0.345,
+      "model_reach": 0.43,
+      "treat_all_profit": 757457.0,
+      "treat_none_profit": 0.0,
+      "rfm_profit": 757457.0,
+      "model_minus_all": 307055.0,
+      "model_minus_rfm": 307055.0
+    },
+    {
+      "u": 0.4,
+      "model_profit": 1410844.0,
+      "model_tau": 0.3,
+      "model_reach": 0.593,
+      "treat_all_profit": 1223834.0,
+      "treat_none_profit": 0.0,
+      "rfm_profit": 1223834.0,
+      "model_minus_all": 187010.0,
+      "model_minus_rfm": 187010.0
+    },
+    {
+      "u": 0.45,
+      "model_profit": 1807298.0,
+      "model_tau": 0.15,
+      "model_reach": 0.882,
+      "treat_all_profit": 1690210.0,
+      "treat_none_profit": 0.0,
+      "rfm_profit": 1690210.0,
+      "model_minus_all": 117088.0,
+      "model_minus_rfm": 117088.0
+    },
+    {
+      "u": 0.5,
+      "model_profit": 2257420.0,
+      "model_tau": 0.125,
+      "model_reach": 0.907,
+      "treat_all_profit": 2156587.0,
+      "treat_none_profit": 0.0,
+      "rfm_profit": 2156587.0,
+      "model_minus_all": 100833.0,
+      "model_minus_rfm": 100833.0
+    },
+    {
+      "u": 0.55,
+      "model_profit": 2711295.0,
+      "model_tau": 0.075,
+      "model_reach": 0.939,
+      "treat_all_profit": 2622964.0,
+      "treat_none_profit": 0.0,
+      "rfm_profit": 2622964.0,
+      "model_minus_all": 88331.0,
+      "model_minus_rfm": 88331.0
+    },
+    {
+      "u": 0.6,
+      "model_profit": 3171910.0,
+      "model_tau": 0.075,
+      "model_reach": 0.939,
+      "treat_all_profit": 3089340.0,
+      "treat_none_profit": 0.0,
+      "rfm_profit": 3089340.0,
+      "model_minus_all": 82570.0,
+      "model_minus_rfm": 82570.0
+    }
+  ],
+  "note_model_ge_treatall": "model τ* includes τ=0 (treat-all), so model >= treat-all for all u; markers describe regions not crossings",
+  "breakeven_u_treatall_positive": 0.269,
+  "breakeven_u_model_advantage_below_10pct": 0.45,
+  "industry_uplift_band": {
+    "low": 0.012,
+    "high": 0.03,
+    "sources": [
+      "Siim Pettai email winback abs uplift 1.2% (4.2%->5.4%)",
+      "Walmart Connect/Scintilla RCT 2.97% (2026)"
+    ]
+  },
+  "industry_anchors": {
+    "redemption_rate_beauty_ecom": "8%-15% (Count.co)",
+    "gross_margin_mainstream_beauty": "65%-70% (達爾膚69%, 軒郁68.73%)",
+    "fixed_contact_cost_sms_email": "1.0-1.5 NTD"
+  },
+  "sensitivity_u030": {
+    "gm_grid": [
+      0.45,
+      0.55,
+      0.65,
+      0.7
+    ],
+    "redeem_grid": [
+      0.08,
+      0.12,
+      0.25,
+      0.4
+    ],
+    "fixed": 2.0,
+    "model_profit": [
+      [
+        1761280.2850000001,
+        1537768.2850000001,
+        874589.0700000001,
+        535113.81
+      ],
+      [
+        2268571.015,
+        2045059.0150000001,
+        1336968.225,
+        817238.4950000001
+      ],
+      [
+        2775861.745,
+        2552349.745,
+        1834778.2150000003,
+        1150116.9900000002
+      ],
+      [
+        3029507.11,
+        2805995.11,
+        2086022.77,
+        1347755.2199999997
+      ]
+    ],
+    "model_minus_treatall": [
+      [
+        11802.629999999888,
+        19722.62999999989,
+        108697.4149999998,
+        637092.1549999998
+      ],
+      [
+        10318.770000000019,
+        18238.77000000002,
+        62301.97999999998,
+        410442.25
+      ],
+      [
+        8834.910000000149,
+        16754.91000000015,
+        51337.380000000354,
+        234546.15500000026
+      ],
+      [
+        8092.979999999981,
+        16012.979999999981,
+        48194.64000000013,
+        177797.08999999985
+      ]
+    ]
+  },
+  "conclusion": "產業 winback uplift 實證 1.2%~3.0%，遠低於 treat-all 由負轉正的 u~0.269；在此實務區間 treat-all 期望利潤為負（虧損），模型選擇性 targeting（僅觸及高價值少數）嚴格安全。"
+}

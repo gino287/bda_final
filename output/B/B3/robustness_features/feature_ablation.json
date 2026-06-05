@@ -1,0 +1,47 @@
+{
+  "a_full": {
+    "removed": [],
+    "n_features": 48,
+    "roc_auc": 0.7098,
+    "pr_auc": 0.569,
+    "brier": 0.2034,
+    "d_roc_auc_vs_full": 0.0,
+    "d_pr_auc_vs_full": 0.0
+  },
+  "b_drop_cardlevel_and_shopid": {
+    "removed": [
+      "MemberCardLevel",
+      "membercard_missing",
+      "ShopId"
+    ],
+    "n_features": 45,
+    "roc_auc": 0.6911,
+    "pr_auc": 0.5423,
+    "brier": 0.21,
+    "d_roc_auc_vs_full": -0.0187,
+    "d_pr_auc_vs_full": -0.0267
+  },
+  "c_drop_cardlevel_only": {
+    "removed": [
+      "MemberCardLevel",
+      "membercard_missing"
+    ],
+    "n_features": 46,
+    "roc_auc": 0.692,
+    "pr_auc": 0.5443,
+    "brier": 0.2097,
+    "d_roc_auc_vs_full": -0.0178,
+    "d_pr_auc_vs_full": -0.0247
+  },
+  "d_drop_shopid_only": {
+    "removed": [
+      "ShopId"
+    ],
+    "n_features": 47,
+    "roc_auc": 0.7105,
+    "pr_auc": 0.5704,
+    "brier": 0.2032,
+    "d_roc_auc_vs_full": 0.0007,
+    "d_pr_auc_vs_full": 0.0014
+  }
+}

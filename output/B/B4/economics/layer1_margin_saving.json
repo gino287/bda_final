@@ -1,0 +1,89 @@
+{
+  "layer": "Layer 1 — discount efficiency / margin saving (cost avoidance)",
+  "decision_model": "calibrated LightGBM (p_lightgbm_cal), time-based test n=38,572",
+  "opponent": "treat-all (send coupon to everyone); treat-none(=0) listed as giving up real revenue, not saving",
+  "assumptions": {
+    "gross_margin": 0.55,
+    "coupon_face_value": 150,
+    "redemption_rate": 0.4,
+    "fixed_contact_cost": 5,
+    "coupon_cost_per_person": 60.0,
+    "contact_cost_per_person": 65.0,
+    "m_revival_margin": 703.8,
+    "note": "m 僅作風險上限估計，非因果增量；本層硬數字（毛省）不依賴 m"
+  },
+  "scaling_populations": {
+    "test": 38572,
+    "B_mother": 144919,
+    "returners": 232328
+  },
+  "high_tiers": [
+    {
+      "tier": "high_top30pct",
+      "n_H": 11571,
+      "share_of_test": 0.3,
+      "revival_rate_H": 0.5429,
+      "revivers_in_H": 6282,
+      "gross_saving_margin_test": 694260.0,
+      "gross_saving_with_fixed_test": 752115.0,
+      "per_returner_saving": 18.0,
+      "scaled_to_Bmother": 2608407.0,
+      "scaled_to_returners": 4181687.0,
+      "u_breakeven": 0.157
+    },
+    {
+      "tier": "high_p>=0.6",
+      "n_H": 3152,
+      "share_of_test": 0.0817,
+      "revival_rate_H": 0.7078,
+      "revivers_in_H": 2231,
+      "gross_saving_margin_test": 189120.0,
+      "gross_saving_with_fixed_test": 204880.0,
+      "per_returner_saving": 4.9,
+      "scaled_to_Bmother": 710543.0,
+      "scaled_to_returners": 1139113.0,
+      "u_breakeven": 0.1204
+    }
+  ],
+  "low_tiers": [
+    {
+      "tier": "low_bottom30pct",
+      "n_H": 11572,
+      "share_of_test": 0.3,
+      "revival_rate_H": 0.1599,
+      "revivers_in_H": 1850,
+      "gross_saving_margin_test": 694320.0,
+      "gross_saving_with_fixed_test": 752180.0,
+      "per_returner_saving": 18.0,
+      "scaled_to_Bmother": 2608632.0,
+      "scaled_to_returners": 4182049.0,
+      "u_breakeven": 0.5333,
+      "caveat": "低分客復活率低、實際兌換少，flat coupon_cost 高估省下額；真實節省偏固定觸及成本"
+    },
+    {
+      "tier": "low_p<0.2",
+      "n_H": 6551,
+      "share_of_test": 0.1698,
+      "revival_rate_H": 0.1062,
+      "revivers_in_H": 696,
+      "gross_saving_margin_test": 393060.0,
+      "gross_saving_with_fixed_test": 425815.0,
+      "per_returner_saving": 10.19,
+      "scaled_to_Bmother": 1476767.0,
+      "scaled_to_returners": 2367491.0,
+      "u_breakeven": 0.8024,
+      "caveat": "同上：低分層的硬節省以固定觸及成本(5/人)為主，折扣 margin 節省被高估"
+    }
+  ],
+  "treat_all_reference_spend": {
+    "test": 2507180.0,
+    "scaled_returners": 15101320.0
+  },
+  "honesty_notes": [
+    "毛省金額(券面額×兌換×|H|)為硬數字，不需 uplift 假設。",
+    "停發風險以損益兩平 uplift 呈現：H 內實際 uplift 低於 u_breakeven 即淨賺。",
+    "依賴溫和假設『高分客大多沒券也會回來』(actual uplift << breakeven)，已明說。",
+    "treat-none 非省錢而是放棄真實營收；增量營收結論皆非因果。",
+    "縮放到 B 母體/回流總體假設『時間外 test 分佈可推廣』。"
+  ]
+}

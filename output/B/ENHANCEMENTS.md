@@ -132,7 +132,7 @@
 |------|---------|------|
 | `B4/business_findings.md` | 附錄 A（任務 1/3/4）已附加；第 5 節洞察 #2 由任務 3 更正 | 已更新 |
 | `B5/report_assets/B5_report.md` | 附錄 B（任務 2）已附加 | 已更新 |
-| `B_FINAL_REPORT.md` | 已含四任務；**baseline 數字（任務 5）尚提及舊值 0.39，待同步** | ⚠️ 待同步 |
+| `B_FINAL_REPORT.md` | baseline 0.39→0.50、原版 profit 加修正指標 | ✅ 已同步（B-R2） |
 | `B3/cv_results.json` | baseline 名稱與數字已更新 | 已更新 |
 
-> 註：多處報告正文仍寫「RFM 規則 PR-AUC≈0.39」，若要全面對齊新 baseline（0.50），需另行同步更新（可再交辦）。
+> 註：所有報告數字已於 **B-R2** 對齊 `CANONICAL_NUMBERS.md`（單一真實來源），變更清單見 `sync_report.md`。

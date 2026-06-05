@@ -1,61 +1,62 @@
-# output/B/ — B 組產出資料夾結構
+# output/B/ — B 組產出總導覽
 
-> 📄 **想一次看完整結論 → `B_FINAL_REPORT.md`**（單頁總報告，串接 B0~B5 + 四項強化任務）。
+> 🎯 **看一份就掌握全研究 → `MASTER_BRIEF.md`**（四段成線 + 預期問答，現場底稿）。
+> 🥇 **數字一律以 `CANONICAL_NUMBERS.md` 為準**（單一真實來源，2026-06-04 同步）。
+> 📖 報告骨架 → `BUSINESS_STORY.md` + `value_funnel.png`（六段商業故事）。
+> 📄 技術總報告 → `B_FINAL_REPORT.md`（B0~B5 + 強化任務）。
+> 🧭 全資產索引 → `B5/report_assets/INDEX.md`。
 
-依 Sprint 分層，方便按階段查找。每個檔案歸到「產生它的 Sprint」。
+## 頂層文件（先看這些）
+
+| 檔案 | 用途 |
+|------|------|
+| **`MASTER_BRIEF.md`** | 🎯 看一份就掌握全研究：四段成線 + 預期問答（現場底稿） |
+| **`CANONICAL_NUMBERS.md`** | ★ 所有對外數字的單一真實來源，每個標來源檔 |
+| `BUSINESS_STORY.md` | 六段商業故事（報告主軸）+ `value_funnel.png` 總圖 |
+| `B_FINAL_REPORT.md` | 技術總報告（B0~B5 + 四強化任務） |
+| `ENHANCEMENTS.md` | 強化任務（1~5）變更紀錄 |
+| `sync_report.md` | B-R2 數字同步變更清單 |
+| `README.md` | 本檔（總導覽） |
+
+## 資料夾結構（每個資料夾都有自己的 README.md）
 
 ```
 output/B/
-├── B0/   母體驗數
-│   └── b0_summary.json
-├── B1/   事件表與標籤
-│   └── event_table.parquet
-├── B2/   特徵工程
-│   └── features.parquet               (144,919 × 54)
-├── B3/   建模
-│   ├── models/                        logreg, lightgbm, catboost, lightgbm_calibrated
-│   ├── cv_results.json
-│   ├── test_predictions.parquet
-│   └── lgb_feature_importance.csv
-├── B4/   評估與商業價值
-│   ├── figures/                       roc_pr, lift_gain, calibration,
-│   │                                  profit_curve(_reachable),
-│   │                                  profit_uplift_vs_u, profit_cannibalization,
-│   │                                  t0_amount_revival,
-│   │                                  shap_beeswarm, shap_dependence
-│   ├── business_findings.md           (含附錄 A：任務 1/3/4)
-│   ├── b4_eval_summary.json
-│   ├── b_profit_revised.json          修正版 profit（uplift + cannibalization）任務1
-│   ├── t0_amount_bins.csv             t0_amount 分桶數據（任務3）
-│   ├── t0_paytype_cleanup.json        t0_payment_type 清理前後對照（任務4）
-│   └── logreg_coefficients.csv
-└── B5/   穩健性、子群、報告
-    ├── figures/funnel.png
-    ├── b5_subgroup_metrics.csv
-    ├── b5_robustness.json
-    └── report_assets/                 B5_report.md (含附錄 B：任務2), INDEX.md,
-                                       brand_heterogeneity.csv/.png/.json (任務2)
+├── CANONICAL_NUMBERS.md  ★ 數字單一真實來源
+├── BUSINESS_STORY.md     報告骨架（+ value_funnel.png）
+├── B_FINAL_REPORT.md     技術總報告
+├── ENHANCEMENTS.md / sync_report.md
+├── B0/  母體驗數          → b0_summary.json
+├── B1/  事件表與標籤       → event_table.parquet
+├── B2/  特徵工程          → features.parquet (144,919×54)
+├── B3/  建模              → models/, cv_results.json, test_predictions.parquet
+│   └── robustness_features/   任務 B-R1 特徵 ablation
+├── B4/  評估與商業價值
+│   ├── business_findings.md, b4_eval_summary.json, b_profit_revised.json ...
+│   ├── economics/         三層經濟敘事（ECONOMIC_NARRATIVE.md = 主敘事）
+│   ├── insights/          Block3 五條洞察（INSIGHTS.md）
+│   └── figures/           所有圖
+├── B5/  穩健性/子群/報告/分級
+│   ├── report_assets/     B5_report.md, brand_heterogeneity.*, INDEX.md
+│   └── segmentation/      Block2 分級/策略地圖/部署/PLAYBOOK
+└── _archive/              已取代/廢棄檔（目前無，見其 README）
 ```
 
-## 對應腳本（src/B/）
-| Sprint | 腳本 | 產出資料夾 |
-|--------|------|-----------|
-| B0 | `b0_sanity.py` | `output/B/B0/` |
-| B1 | `b1_label.py` | `output/B/B1/` |
-| B2 | `b2_features.py` | `output/B/B2/` |
-| B3 | `b3_train.py` | `output/B/B3/` |
-| B4 | `b4_evaluate.py` + `b4b_profit_revised.py` | `output/B/B4/` |
-| B5 | `b5_robustness_report.py` | `output/B/B5/` |
+> 每個資料夾的 `README.md` 逐檔說明「這是什麼、哪個 sprint/task 產的、現行有效或已被取代」。
 
-## 後續強化任務（第一版完成後追加）
-| 任務 | 腳本 | 產出 | 報告位置 |
-|------|------|------|---------|
-| 1 修正版 profit（uplift+cannibalization） | `b4b_profit_revised.py` | B4/b_profit_revised.json、2 張 profit 圖 | business_findings.md 附錄 A1 |
-| 2 品牌異質性表 | `b5b_brand_heterogeneity.py` | B5/report_assets/brand_heterogeneity.* | B5_report.md 附錄 B |
-| 3 t0_amount 洞察佐證 | `b4c_t0amount_insight.py` | B4/figures/t0_amount_revival.png、B4/t0_amount_bins.csv | business_findings.md 附錄 A2（更正洞察#2方向） |
-| 4 t0_payment_type 清理 | `b3b_paytype_check.py` | B4/t0_paytype_cleanup.json（已寫回 features + lightgbm 模型） | business_findings.md 附錄 A3 |
+## 對應腳本（src/B/）
+
+| 階段 | 腳本 |
+|------|------|
+| 主流程 B0~B5 | `b0_sanity` `b1_label` `b2_features` `b3_train` `b4_evaluate` `b5_robustness_report` |
+| 強化任務 1~5 | `b4b_profit_revised`(1) `b5b_brand_heterogeneity`(2) `b4c_t0amount_insight`(3) `b3b_paytype_check`(4) `b3_train`(5 baseline) |
+| Block1 三層經濟 | `b4d_layer1_margin_saving` `b4e_layer2_crossover` `b4f_layer3_robustness` `b4g_pretask_consistency` |
+| Block3 / Block2 / 整合 | `b4h_insights` / `b5c_segmentation` / `b_business_story` |
+| 任務 B-R1 ablation | `b3c_feature_ablation` |
 
 ## 資料流（重跑順序）
-B0 → B1 → B2 → B3 → B4（含 b4b/b4c）→ B5（含 b5b）。
-後段 sprint 讀取前段產出（如 B4 讀 B2/features + B3/models、test_predictions）。
-任務 4 的清理已併入 `b2_features.py`，未來重跑 B2 即自帶；任務 3/4 腳本可於 B2/B3 完成後獨立執行。
+B0 → B1 → B2 → B3 →（B-R1 ablation）→ B4（評估 + 強化任務 + Block1 三層 + 洞察）→ B5（穩健 + Block2 分級）→ 整合（BUSINESS_STORY）。
+後段讀前段產出。所有 leakage 鐵律於 B2 把關；frozen 模型在 B3/models。
+
+## 環境
+所有腳本用 `./venv/Scripts/python` 執行（全域 python 無 duckdb）。

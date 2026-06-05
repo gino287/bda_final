@@ -67,14 +67,14 @@
 | 模型 | ROC-AUC | PR-AUC | Brier |
 |------|:-------:|:------:|:-----:|
 | baseline 多數類 | 0.500 | 0.344 | 0.228 |
-| baseline RFM 規則 | 0.562 | 0.392 | 0.331 |
+| baseline **RFM-only 邏輯迴歸** | 0.645 | 0.503 | 0.221 |
 | baseline NAPL 規則 | 0.570 | 0.379 | 0.294 |
 | 邏輯迴歸 | 0.706 | 0.559 | 0.206 |
 | LightGBM | 0.710 | 0.569 | 0.203 |
 | **CatBoost（最佳）** | **0.716** | **0.578** | 0.202 |
 | LightGBM 校準版 | 0.708 | 0.554 | **0.197** |
 
-- **驗收通過**：主模型 PR-AUC 0.57 vs 基準最高 0.39，大幅勝出（+45%）。
+- **驗收通過**：主模型 PR-AUC 0.578 vs 最強基準 RFM-logreg 0.503，勝出 **+15%**（見 `CANONICAL_NUMBERS.md`）。
 - 校準有效（Brier 0.203→0.197），機率可直接用於期望利潤決策。
 - 隨機切分 PR-AUC 0.626 > 時間外 0.569，反映時間漂移（11 月後復活率下降），時間外為誠實估計。
 
@@ -87,7 +87,7 @@
 - **SHAP 全域 Top**：ShopId、MemberCardLevel、t0_channel_type、offline_ratio、hist_finish_count、t0_channel_detail。
   - MemberCardLevel 高 → 強烈正向；offline_ratio/hist_finish_count 高 → 正向；**t0_amount 高 → 負向**（見任務 3）。
 - **原版 Profit**（m=704, c=65，m/c≈11）：profit-max τ*=0.12、觸及 92%，模型僅勝全發券 +1.5%。
-  - ⚠️ 此過度樂觀，已由**任務 1** 修正（見下）。
+  - ⚠️ 此為早期「全額毛利」框架、過度樂觀，**已被 Block 1 uplift 修正版取代為主敘事**。最終經濟結論（單位修正後）：實務 uplift 比例 15~25% 下全發券落損益兩平微虧側、模型多賺 NT$0.7~1.3M，詳見 `B4/economics/ECONOMIC_NARRATIVE.md` 與 `CANONICAL_NUMBERS.md`。
 
 ---
 
